@@ -1,0 +1,17 @@
+{% extends '_base.html' %}
+
+{% block title %}
+   اضافه کردن کتاب 
+{% endblock %}
+
+
+{% block content %}
+
+    <form method="post" accept="{% url 'book_create' %}">
+        {% csrf_token %}
+        {{form}}
+        <input class="btn btn-sm btn-success" type="submit" value="تایید">
+    </form>
+    <a class="link" href="{% url 'book_list' %}">لیست کتاب ها</a>
+
+{% endblock %}
