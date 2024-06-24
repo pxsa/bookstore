@@ -9,7 +9,8 @@
 
     {% for book in books %}
         <h1>{{book.title}}</h1>
-
+        <a class="btn btn-sm btn-primary" href="{{ book.get_absolute_url }}">ادامه مطلپ</a>
+        <hr>
     {% endfor %}
 
 {% endblock %}
