@@ -5,5 +5,9 @@ from django.db import models
 class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=200)
-    content = models.TextField()
+    description = models.TextField()
     price = models.DecimalField(max_digits=8, decimal_places=2)
+
+
+    def __str__(self) -> str:
+        return self.title
