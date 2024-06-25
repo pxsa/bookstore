@@ -1,0 +1,16 @@
+{% extends '_base.html' %}
+
+{% block title %}
+    ویرایش کتاب
+{% endblock %}
+
+
+{% block content %}
+
+    <form method="post" accept="{% url 'book_create' %}">
+        {% csrf_token %}
+        {{form}}
+        <input class="btn btn-sm btn-success" type="submit" value="تایید">
+    </form>
+    
+{% endblock %}
