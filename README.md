@@ -1,33 +1,61 @@
 # Book Store
 
+## Content
+
+- [Todo](#todo)
+- [Commands](#commands)
+- [Dockerfile](#dockerfile)
+- [docker-compose](#docker-compose)
+
+
 ## Todo
 
+- [ ] create a new app for managing users
 - [ ] create custom user model
 
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
+## Commands
 
-> [!TIP]
-> Helpful advice for doing things better or more easily.
+| command | job |
+| --- | --- |
+| python manage.py startapp `accounts` | create a new django app |
+
+## start
+
+First create a new django application by the following command:
+
+`python3 manage.py start app accounts`
 
 > [!IMPORTANT]
-> Key information users need to know to achieve their goal.
+> Whenever you created a new app, you need to add it to the`settings.py` immediately.
 
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
+There are two ways in order to add a new app to the project:
 
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
+1. wrtie the name of the app
+
+```
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    ...
+
+    'accounts',
+]
+```
+
+2. write the name of corresponding appConfig class
+
+```
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    ...
+
+    'accounts.app.AccountsConfig',
+]
+```
 
 
 ## Docker
 
-- [Dockerfile](#dockerfile)
-- [docker-compose](#docker-compose)
-
 ### Dockerfile
-
-
 
 ### docker-compose
 
