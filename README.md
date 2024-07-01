@@ -133,7 +133,7 @@ If you're in your virtual env then:
 But if you're using docker then:
 > sudo docker-compose exec web python3 manage.py makemigrations accounts
 
-At this point you can creat a super user as well.
+At this point you can create a super user as well.
 
 ## Docker
 
