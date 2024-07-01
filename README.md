@@ -72,15 +72,57 @@ class CustomUser(AbstractUser):
 
 In this code we've inherited from `AbstractUser` and added a new field named `age` to store user age.
 
-But unfortunately django has no idea about our custom user model, and we need to notify and make django aware of our new model. So all we need is doing some changed in `settings.py`:
+But unfortunately django has no idea about our custom user model, and we need to notify and make django aware of our new model. So all we need to do is doing one tiny change in `settings.py`:
 
-```
+``` python
 # settings.py
-
 AUTH_USER_MODEL = 'accounts.CustomUser'
 ```
 
 At this point, we are quite sure that django will use our `CustomUser` model instead of its own `User` model.
+
+#### Custom User Form
+
+As we have a new user model, we need to think about its consequences and make corresponding changes in order to have an appropriate signup form and extend them.
+
+``` python
+# forms.py
+
+from django.contrib.auth.forms import UserCreationForm
+
+from .models import CustomUser
+
+
+class CustomUserCreationForm(UserCreationForm):
+    class Meta:
+        model = CustomUser
+        fields = UserCreationForm.Meta.fields + ('age', )
+
+```
+So whenever a user wanted to signup we can use our custom model.
+
+> [!IMPORTANT]
+> `Django` has no idea about this custom form, so we need to make it aware of our new form class.
+
+``` python
+# admin.py
+
+from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+
+from .forms import CustomUserCreationForm
+from .models import CustomUser
+
+
+class CustomUserAdmin(UserAdmin):
+    add_form = CustomUserCreationForm
+    model = CustomUser
+
+
+admin.site.register(CustomUser, CustomUserAdmin)
+```
+
+By registering the `CustomUserAdmin` then we're sure about the user creation form(`signup` form).
 
 ## Docker
 
