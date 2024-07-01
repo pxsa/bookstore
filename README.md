@@ -124,6 +124,17 @@ admin.site.register(CustomUser, CustomUserAdmin)
 
 By registering the `CustomUserAdmin` then we're sure about the user creation form(`signup` form).
 
+> [!NOTE]
+> Now it's time to use `makemigrations` and then `migrate` our models.
+
+If you're in your virtual env then:
+> python3 manage.py makemigrations accounts
+
+But if you're using docker then:
+> sudo docker-compose exec web python3 manage.py makemigrations accounts
+
+At this point you can creat a super user as well.
+
 ## Docker
 
 ### Dockerfile
