@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # local app
     'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig',
+    'books.apps.BooksConfig',
 ]
 
 MIDDLEWARE = [
