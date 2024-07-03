@@ -12,4 +12,8 @@
     <h3>{{book.author}}</h3>
     <small>{{book.price}}</small>
 
+    <a class="btn btn-primary" href="{% url 'book_update' book.id %}">ویرایش</a>
+    <a class="btn btn-danger" href="{% url 'book_delete' book.id %}">حذف</a>
+
+
 {% endblock %}
