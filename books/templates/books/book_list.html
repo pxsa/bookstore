@@ -6,10 +6,16 @@
 {% endblock %}
 
 {% block content %}
-    {% for book in books %}
-        <!-- <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a> -->
-        <a href="{{ book.get_absolute_url}}">{{ book.title }}</a>
-        {{ book.author }}
-        <br>
-    {% endfor %}
+    <div class="row my-5 justify-content-center v-stack gap-1">
+
+        {% for book in books %}
+        <div class="col-lg-3">
+            <div class="card shadow border-0 p-3">
+                <a href="{{ book.get_absolute_url}}">{{ book.title }}</a>
+                {{ book.author }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <a class="btn btn-primary" href="{% url 'book_create' %}">ایجاد کتاب</a>
 {% endblock %}
