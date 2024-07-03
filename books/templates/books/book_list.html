@@ -7,7 +7,8 @@
 
 {% block content %}
     {% for book in books %}
-        {{ book.title }}
+        <!-- <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a> -->
+        <a href="{{ book.get_absolute_url}}">{{ book.title }}</a>
         {{ book.author }}
         <br>
     {% endfor %}
