@@ -3,6 +3,7 @@ from django.views import generic
 from django.urls import reverse_lazy
 
 from .models import Book
+from .forms import CommentForm
 
 
 # Create your views here.
@@ -20,9 +21,23 @@ class BookDetailView(generic.DetailView):
 def book_detail_view(request, pk):
     book = get_object_or_404(Book, pk=pk)
     comments = book.comments.all()
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            new_comment = form.save(commit=False)
+            new_comment.user = request.user
+            new_comment.book = book
+            new_comment.save()
+            form = CommentForm()
+    
+    else:
+        form = CommentForm()
+
     context = {
         'book': book,
         'comments':comments,
+        'form': form,
     }
     return render(request, 'books/book_detail.html', context=context)
 

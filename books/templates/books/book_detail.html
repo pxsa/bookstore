@@ -1,5 +1,6 @@
 {% extends '_base.html' %}
 
+{% load crispy_forms_tags %}
 
 {% block title %}
     {{ book.title }}
@@ -27,6 +28,20 @@
                         <p>{{comment.text | linebreaks }}</p>
                     </div>
                 {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FORM -->
+    <div class="my-5" dir="rtl">
+        <div class="card shadow">
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <input class="btn btn-primary mt-3" type="submit" value="ارسال">
+                </form>
             </div>
         </div>
     </div>
