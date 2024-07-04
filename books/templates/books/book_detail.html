@@ -16,4 +16,20 @@
     <a class="btn btn-danger" href="{% url 'book_delete' book.id %}">حذف</a>
 
 
+    <!-- COMMENTS -->
+    <div class="my-5" dir="rtl">
+        <div class="card shadow">
+            <div class="card-body">
+                <h2>نظرات</h2>
+                {% for comment in comments %}
+                    <div class="my-3 border-bottom">
+                        <h5>{{comment.user.username}}</h5>
+                        <p>{{comment.text | linebreaks }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
 {% endblock %}
