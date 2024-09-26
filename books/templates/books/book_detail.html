@@ -9,6 +9,10 @@
     <p>{{book.author}}</p>
     <p>{{book.description}}</p>
     <p>{{book.price}}</p>
+    <div>
+        <a href="{% url 'book_update' book.id %}">ویرایش</a >
+        <a href="{% url 'book_delete' book.id %}">حذف</a >
+    </div>
     <br>
     
 {% endblock %}
