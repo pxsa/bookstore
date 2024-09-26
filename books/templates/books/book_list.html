@@ -1,0 +1,17 @@
+{% extends '_base.html' %}
+
+{% block title %}
+    کتاب‌ها
+{% endblock %}
+
+{% block content %}
+    <h2>کتاب ها</h2>
+    <ul>
+        {% for book in books %}
+            <li>{{book.title}}</li>
+            <li>{{book.author}}</li>
+            <li>{{book.description}}</li>
+            <li>{{book.price}}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
