@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # installed
+    'widget_tweaks',
+
+    # custom
     'accounts.apps.AccountsConfig',
     'books.apps.BooksConfig',
 ]
