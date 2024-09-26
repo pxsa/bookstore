@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'shakhak';
+    src: url('../fonts/W_shakhak.ttf');
+}
+
+
+
+body {
+    background-image: url("../images/bg-masthead.jpg");
+    background-attachment: fixed;
+}
+
+.cover {
+    min-height: 30rem;
+    position: relative;
+    display: table;
+    width: 100%;
+    height: auto;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    /* background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../images/bg-masthead.jpg"); */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
